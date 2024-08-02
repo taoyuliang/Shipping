@@ -1,13 +1,19 @@
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { genFileId } from 'element-plus'
 
 const router = useRouter()
 const route = useRoute()
 const loginData = reactive({ user: '', pwd: '' })
 const toSupplierEdit = () => router.push({ name: 'suppllierEdit', query: { user: loginData.user } })
 
-
+const upload = ref()
+const headers = { 'Content-Type': 'multipart/form-data' }
+const submitUpload = () => {
+    upload.value.submit()
+    // .then(res => console.log(res.json()))
+}
 
 // AdminJS API
 // http://localhost:3000/admin/api/resources/supplier/actions/list?filters.name=alice
@@ -63,6 +69,23 @@ const toSupplierEdit = () => router.push({ name: 'suppllierEdit', query: { user:
             </div>
         </div>
     </div>
+
+
+
+    <el-upload ref="upload" class="upload-demo" action="http://localhost:3000/admin/upload_files" :limit="2"
+        :auto-upload="false" :="headers" list-type="picture">
+        <template #trigger>
+            <el-button type="primary">select file</el-button>
+        </template>
+        <el-button class="ml-3" type="success" @click="submitUpload">
+            upload to server
+        </el-button>
+        <template #tip>
+            <div class="el-upload__tip text-red">
+                limit 2 files
+            </div>
+        </template>
+    </el-upload>
 </template>
 
 <style scoped></style>
