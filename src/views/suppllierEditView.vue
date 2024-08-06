@@ -4,7 +4,7 @@ import ListItem from '@/components/ListItem.vue';
 import { v4 as uuidv4 } from 'uuid';
 import { genFileId } from 'element-plus'
 import Papa from 'papaparse'
-
+// import { UseActiveElement } from '@vueuse/components'
 // do not use same name with ref
 const form = reactive({
     from: '',
@@ -99,6 +99,11 @@ const handleChange = (uploadFile, uploadFiles) => {
                 <Header />
             </el-header>
             <h1 class="text-center text-2xl mt-6">供应商数据管理</h1>
+            <!-- <UseActiveElement v-slot="{ element }">
+                Active element is {{ element.dataset.id }}
+                <input v-for="i in 6" :key="i" type="text" :data-id="i" class="!my-0 !min-w-0" :placeholder="`${i}`">
+            </UseActiveElement> -->
+
             <el-container class="m-16">
                 <el-aside width="250px">
                     <el-form ref="formRef" :model="form" label-width="6rem" style="max-width: 600px">
