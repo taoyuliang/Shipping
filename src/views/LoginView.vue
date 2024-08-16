@@ -72,20 +72,20 @@ const submitUpload = () => {
 
 
 
-    <el-upload ref="upload" class="upload-demo" action="http://localhost:3000/admin/upload_files" :limit="2"
+    <!-- <el-upload ref="upload" class="upload-demo" action="http://localhost:3000/admin/upload_files" :limit="2"
         :auto-upload="false" :="headers" list-type="picture">
         <template #trigger>
             <el-button type="primary">select file</el-button>
         </template>
-        <el-button class="ml-3" type="success" @click="submitUpload">
-            upload to server
-        </el-button>
-        <template #tip>
+<el-button class="ml-3" type="success" @click="submitUpload">
+    upload to server
+</el-button>
+<template #tip>
             <div class="el-upload__tip text-red">
                 limit 2 files
             </div>
         </template>
-    </el-upload>
+</el-upload> -->
 </template>
 
 <style scoped></style>

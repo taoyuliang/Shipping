@@ -1,0 +1,14 @@
+diff --git a/node_modules/element-plus/lib/components/form/src/form-label-wrap.js b/node_modules/element-plus/lib/components/form/src/form-label-wrap.js
+index afd4007..3e187e7 100644
+--- a/node_modules/element-plus/lib/components/form/src/form-label-wrap.js
++++ b/node_modules/element-plus/lib/components/form/src/form-label-wrap.js
+@@ -31,7 +31,8 @@ var FormLabelWrap = vue.defineComponent({
+       var _a;
+       if ((_a = el.value) == null ? void 0 : _a.firstElementChild) {
+         const width = window.getComputedStyle(el.value.firstElementChild).width;
+-        return Math.ceil(Number.parseFloat(width));
++        // return Math.ceil(Number.parseFloat(width));
++        return Math.ceil(Number.parseFloat(width)) || 0;
+       } else {
+         return 0;
+       }
