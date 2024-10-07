@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import ListItem from '@/components/ListItem.vue'
+import dummyData from '@/DATA.js'
 
 import { reactive } from 'vue'
 
@@ -20,24 +21,24 @@ const route = useRoute()
 formInline.from = route.query.from
 formInline.to = route.query.to
 
-let dummyData = Array(20).fill({
-    "uuid": "90436386-519c-4bc2-960f-1e727e86cfb6",
-    "from": "SHA",
-    "stop": "",
-    "to": "HKG",
-    "effective_date": "2024-07-20",
-    "desc": "",
-    "arr": [
-        {
-            "ratio": "1:167",
-            "r45": "111",
-            "r100": "22",
-            "r300": "33",
-            "r500": "44",
-            "r1000": "555"
-        }
-    ]
-})
+// let dummyData = Array(20).fill({
+//     "uuid": "90436386-519c-4bc2-960f-1e727e86cfb6",
+//     "from": "SHA",
+//     "stop": "",
+//     "to": "HKG",
+//     "effective_date": "2024-07-20",
+//     "desc": "",
+//     "arr": [
+//         {
+//             "ratio": "1:167",
+//             "r45": "111",
+//             "r100": "22",
+//             "r300": "33",
+//             "r500": "44",
+//             "r1000": "555"
+//         }
+//     ]
+// })
 
 </script>
 

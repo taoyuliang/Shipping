@@ -19,31 +19,32 @@ const removeItem = (iKey) => emit('deleteItem', iKey)
     <div class="mb-10">
         <el-row>
             <el-col :span="3">
-                <el-image style="width: 50px; height: 50px; margin-right: .5rem;"
-                    src="/supplier_logos/hainan_ariline.png" fit="fill" />
+                <el-image style="width: 50px; height: 50px; margin-right: .5rem;" src="" :alt="itemObj.route[0]"
+                    fit="fill" />
                 <el-text>海南航空</el-text>
             </el-col>
             <el-col :span="3">
-                <el-text size="large">{{ itemObj.from }}</el-text>
+                <el-text size="large">{{ itemObj.route[2] }}</el-text>
                 <span class="mr-2"></span>
                 <el-icon size="large">
                     <AkArrowRightThick />
                 </el-icon>
                 <span class="mr-2"></span>
 
-                <el-text size="large">{{ itemObj.to }}</el-text>
+                <el-text size="large">{{ itemObj.route[5] }}</el-text>
             </el-col>
             <el-col :span="3">
-                <el-text>起效期: {{ itemObj.effective_date }} </el-text>
+                <el-text>起效期: 2024-09-25</el-text>
             </el-col>
             <el-col :span="12">
-                <el-table :data="itemObj.arr" stripe size="small">
+                <el-table :data="itemObj.ratesArr" stripe size="small">
                     <el-table-column prop="ratio" label="货比" />
-                    <el-table-column prop="r45" label="45+" />
-                    <el-table-column prop="r100" label="100+" />
-                    <el-table-column prop="r300" label="300+" />
-                    <el-table-column prop="r500" label="500+" />
-                    <el-table-column prop="r1000" label="1000+" />
+                    <el-table-column prop="type" label="类型" />
+                    <el-table-column prop="45" label="45+" />
+                    <el-table-column prop="100" label="100+" />
+                    <el-table-column prop="300" label="300+" />
+                    <el-table-column prop="500" label="500+" />
+                    <el-table-column prop="1000" label="1000+" />
                 </el-table>
             </el-col>
 
@@ -63,7 +64,7 @@ const removeItem = (iKey) => emit('deleteItem', iKey)
                 <el-icon>
                     <ElementPlus />
                 </el-icon>
-                北京中港大方国际货运代理有限公司
+                <!-- 北京中港大方国际货运代理有限公司 -->
             </el-text>
             <el-rate class="ml-1" size="small" />
         </el-row>
