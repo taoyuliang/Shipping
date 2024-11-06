@@ -1,5 +1,6 @@
 <script setup>
-// import { FlDelete, AkArrowRightThick } from '@kalimahapps/vue-icons';
+// import { FlDelete, AkArrowRightThick } from '@kalimahapps/vue-icons'
+// import { useToast } from 'vue-toast-notification';
 import { ElMessage } from 'element-plus'
 import { useRouter, useRoute } from 'vue-router'
 const router = useRouter()
@@ -8,9 +9,10 @@ let showDeleteIcon = route.path == '/queryResult' ? false : true
 const emit = defineEmits(['deleteItem'])
 defineProps({
     itemObj: Object,
-    iKey: String,
+    iKey: Number,
 })
-
+// const toast = useToast()
+// window.confirm("Are you sure...")
 const removeItem = (iKey) => emit('deleteItem', iKey)
 
 </script>
@@ -19,22 +21,26 @@ const removeItem = (iKey) => emit('deleteItem', iKey)
     <div class="mb-10">
         <el-row>
             <el-col :span="3">
-                <el-image style="width: 50px; height: 50px; margin-right: .5rem;" src="" :alt="itemObj.route[0]"
+                <el-image style="width: 50px; height: 50px; margin-right: .5rem;" src="" :alt="itemObj.airline"
                     fit="fill" />
-                <el-text>海南航空</el-text>
+                <el-text size="small">{{ itemObj.airline }}</el-text>
             </el-col>
             <el-col :span="3">
-                <el-text size="large">{{ itemObj.route[2] }}</el-text>
+                <el-text size="large">{{ itemObj.from }}</el-text>
                 <span class="mr-2"></span>
                 <el-icon size="large">
-                    <AkArrowRightThick />
+                    <MdFlightTakeoff />
+                </el-icon>
+                <el-text>{{ itemObj.stop }}</el-text>
+                <el-icon size="large">
+                    <MdRoundFlightLand />
                 </el-icon>
                 <span class="mr-2"></span>
 
-                <el-text size="large">{{ itemObj.route[5] }}</el-text>
+                <el-text size="large">{{ itemObj.to }}</el-text>
             </el-col>
             <el-col :span="3">
-                <el-text>起效期: 2024-09-25</el-text>
+                <el-text>起效期: {{ itemObj.effective_date.split("T")[0] }}</el-text>
             </el-col>
             <el-col :span="12">
                 <el-table :data="itemObj.ratesArr" stripe size="small">

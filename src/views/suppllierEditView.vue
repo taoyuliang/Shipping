@@ -1,7 +1,7 @@
 <script setup>
 import { ref, toValue, reactive } from 'vue'
-import ListItem from '@/components/ListItem.vue';
-import { v4 as uuidv4 } from 'uuid';
+import ListItem from '@/components/ListItem.vue'
+import { v4 as uuidv4 } from 'uuid'
 import { genFileId } from 'element-plus'
 import Papa from 'papaparse'
 // import { UseActiveElement } from '@vueuse/components'

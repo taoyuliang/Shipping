@@ -44,5 +44,12 @@ export default defineConfig({
   server: {
     host: true,
     strictPort: true, // Tauri expects a fixed port, fail if that port is not available
+    proxy: {
+      "/api": {
+        target: "http://localhost:3000",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
   },
 })

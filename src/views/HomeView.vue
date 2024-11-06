@@ -2,13 +2,16 @@
 import { ref, unref } from 'vue'
 import { Search } from '@element-plus/icons-vue'
 import { useRouter, useRoute } from 'vue-router'
+import data from '../assets/data.json'
 
-const router = useRouter()
+const router = useRouter() // Or just use src/router/index.js via import router from '@/router'
 const route = useRoute()
 
-const to = ref('')
 const from = ref('')
+const to = ref('')
 const toQueryResult = () => router.push({ name: 'queryResult', query: { to: unref(to), from: unref(from) } })
+
+const options = data.iata
 </script>
 
 <template>
@@ -29,18 +32,20 @@ const toQueryResult = () => router.push({ name: 'queryResult', query: { to: unre
                 <div class="mt-8 mb-44 justify-items-center">
                     <el-row>
                         <el-col :span="5" :offset="6">
-                            <el-select v-model="from" placeholder="please select ..." class="input-with-select">
-                                <el-option label="shanghai" value="shanghai" />
-                                <el-option label="beijing" value="beijing" />
+                            <el-select v-model="from" filterable placeholder="please select ..."
+                                class="input-with-select">
+                                <el-option v-for="item in options" :key="item.value" :label="item.label"
+                                    :value="item.value" />
                             </el-select>
                         </el-col>
 
                         <MiSolidAirplane class="icon" />
 
                         <el-col :span="5">
-                            <el-select v-model="to" placeholder="please select ..." class="input-with-select">
-                                <el-option label="shanghai" value="shanghai" />
-                                <el-option label="beijing" value="beijing" />
+                            <el-select v-model="to" filterable placeholder="please select ..."
+                                class="input-with-select">
+                                <el-option v-for="item in options" :key="item.value" :label="item.label"
+                                    :value="item.value" />
                             </el-select>
                         </el-col>
 
