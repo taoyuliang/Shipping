@@ -17,7 +17,7 @@ const fetchedData = ref([])
 const onSubmit = async () => {
     try {
         loading.value = true
-        const response = await axios.get(`/api/admin/s_routes?from=${formInline.from}&to=${formInline.to}`)
+        const response = await axios.get(`/admin/s_routes?from=${formInline.from}&to=${formInline.to}`)
         fetchedData.value = response.data
     } catch (error) {
         console.error('Error fetching job', error)
@@ -31,7 +31,7 @@ const route = useRoute()
 console.log(route)
 onMounted(async () => {
     try {
-        const response = await axios.get(`/api/admin/s_routes?from=${route.query.from}&to=${route.query.to}`)
+        const response = await axios.get(`/admin/s_routes?from=${route.query.from}&to=${route.query.to}`)
         fetchedData.value = response.data
     } catch (error) {
         console.error('Error fetching job', error)
