@@ -26,10 +26,11 @@ const onSubmit = () => {
 
                 <div class="text-center align-bottom mt-12">
 
-                    <el-image style="width: 100px; height: 100px" :src="url" :zoom-rate="1.2" :max-scale="7"
-                        :min-scale="0.2" :initial-index="4" fit="cover" />
+                    <!-- <el-image style="width: 100px; height: 100px" :src="url" :zoom-rate="1.2" :max-scale="7"
+                        :min-scale="0.2" :initial-index="4" fit="cover" /> -->
+
                     <br>
-                    <el-text>某某物流科技（北京）有限公司</el-text>
+                    <el-text>天天飞物流科技(上海)有限公司</el-text>
                 </div>
 
 

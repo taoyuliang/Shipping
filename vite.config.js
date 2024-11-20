@@ -3,6 +3,8 @@ import vue from "@vitejs/plugin-vue"
 import { fileURLToPath } from "node:url"
 import Components from "unplugin-vue-components/vite"
 import VueIconsResolver from "@kalimahapps/vue-icons/resolver"
+
+const host = process.env.TAURI_DEV_HOST
 // https://vitejs.dev/config/
 export default defineConfig({
   // base: "/vite-github/", // default , used for npm run preview
@@ -43,7 +45,7 @@ export default defineConfig({
     },
   },
   server: {
-    host: true,
+    host: host || false,
     strictPort: true, // Tauri expects a fixed port, fail if that port is not available
     proxy: {
       "/api": {

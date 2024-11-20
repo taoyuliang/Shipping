@@ -23,8 +23,8 @@ const options = data.iata
             <el-main>
                 <div class="mt-10">
                     <el-carousel :interval="2000" type="card" height="400px">
-                        <el-carousel-item v-for="item in 6" :key="item">
-                            <h3 text="2xl" justify="center">{{ item }}</h3>
+                        <el-carousel-item v-for="item in 3" :key="item">
+                            <!-- <h3 text="2xl" justify="center">{{ item }}</h3> -->
                         </el-carousel-item>
                     </el-carousel>
                 </div>
@@ -81,14 +81,20 @@ const options = data.iata
     text-align: center;
 }
 
-.el-carousel__item:nth-child(2n) {
+/* .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
+} */
+.el-carousel__item:nth-child(1) {
+    background-image: url("@/assets/tt1.jpeg");
 }
 
-.el-carousel__item:nth-child(2n + 1) {
-    background-color: #d3dce6;
+.el-carousel__item:nth-child(2) {
+    background-image: url("@/assets/tt2.jpeg");
 }
 
+.el-carousel__item:nth-child(3) {
+    background-image: url("@/assets/tt3.jpeg");
+}
 
 .input-with-select .el-input-group__apppend {
     background-color: var(--el-fill-color-blank);
