@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { reactive } from 'vue'
 import data from '../assets/data.json'
-import axios from 'axios';
+import axios from 'axios'
 // import { v4 as uuidv4 } from 'uuid' // use id instead which is also unique in TABLE 's_routes'
 
 const loading = ref(true)
@@ -46,9 +46,9 @@ formInline.to = route.query.to
 </script>
 
 <template>
-    <el-affix position="top" :offset="0">
+    <!-- <el-affix position="top" :offset="0">
         <Header />
-    </el-affix>
+    </el-affix> -->
     <div class="common-layout h-screen">
         <el-container>
             <!-- <el-header>
@@ -88,9 +88,9 @@ formInline.to = route.query.to
             </el-main>
         </el-container>
     </div>
-    <el-affix position="bottom" :offset="0">
+    <!-- <el-affix position="bottom" :offset="0">
         <Footer />
-    </el-affix>
+    </el-affix> -->
 </template>
 
 <style scoped>

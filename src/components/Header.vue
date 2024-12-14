@@ -5,11 +5,11 @@ import { useRouter, useRoute } from 'vue-router'
 const router = useRouter()
 const route = useRoute()
 
-const activeIndex = ref('0')
+const activeIndex = ref('') //'0'
 const showAdmin = ref(false)
 const showSupplier = ref(true)
 const handleSelect = (key, keyPath) => {
-  console.log(key, keyPath)
+  activeIndex.value = key.toString()
 }
 const toggleShowAdmin = () => showAdmin.value = !unref(showAdmin)
 const toggleshowSupplier = () => { route.query.user ? showSupplier.value = false : '' }
@@ -21,9 +21,9 @@ toggleshowSupplier()
 </script>
 
 <template>
-  <el-menu @dblclick="toggleShowAdmin" :default-active="activeIndex" class="el-menu-demo" mode="horizontal"
-    :ellipsis="false" @select="handleSelect">
-    <el-menu-item index="">
+  <el-menu @dblclick="toggleShowAdmin" :default-active="activeIndex" class="" mode="horizontal" :ellipsis="false"
+    @select="handleSelect">
+    <el-menu-item index="0">
       <router-link to="/">
         <!-- <img style="width: 60px; height: 60px" src="@/assets/vue.svg" alt="Element logo" /> -->
         <svg width="60" height="60" viewBox="0 0 250.00000000000003 238.86493653467187" style="background-color:coral;">
@@ -56,11 +56,25 @@ toggleshowSupplier()
         </svg>
       </router-link>
     </el-menu-item>
+    <el-menu-item>
+      <AppLink to="https://www.iata.org/en/publications/directories/code-search/">
+        IATA三字代码查询
+      </AppLink>
+    </el-menu-item>
+    <el-menu-item index="3">
+      <router-link to="/door2door">
+        门到门查询
+      </router-link>
+    </el-menu-item>
+    <el-menu-item index="4">
+      <router-link to="/transitgoods">
+        国内驳货查询
+      </router-link>
+    </el-menu-item>
     <div class="flex-grow" />
     <el-menu-item v-if="showSupplier" index="1">
       <router-link to="/login">
         供应商入口
-
       </router-link>
     </el-menu-item>
     <el-menu-item v-if="showAdmin" index="2">

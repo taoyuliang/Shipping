@@ -8,6 +8,9 @@
 </script>
 
 <template>
+  <el-affix position="top" :offset="0">
+    <Header />
+  </el-affix>
   <RouterView />
 </template>
 

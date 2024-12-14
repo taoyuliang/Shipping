@@ -96,9 +96,9 @@ const handleChange = (uploadFile, uploadFiles) => {
     <div class="common-layout">
         <el-container>
             <el-header>
-                <Header />
+                <!-- <Header /> -->
+                <h1 class="text-center text-2xl mt-6">供应商数据管理</h1>
             </el-header>
-            <h1 class="text-center text-2xl mt-6">供应商数据管理</h1>
             <!-- <UseActiveElement v-slot="{ element }">
                 Active element is {{ element.dataset.id }}
                 <input v-for="i in 6" :key="i" type="text" :data-id="i" class="!my-0 !min-w-0" :placeholder="`${i}`">
@@ -181,10 +181,10 @@ const handleChange = (uploadFile, uploadFiles) => {
                         <el-row>
                             <el-upload v-model:file-list="fileList" class="upload-demo" action="#" :limit="1"
                                 ref="uploadRef" :auto-upload="false" :on-change="handleChange">
-                                <el-button type="primary">文件上传</el-button>
+                                <el-button type="primary">文件导入</el-button>
                                 <template #tip>
                                     <div class="el-upload__tip">
-                                        ONLY csv file supported.
+                                        csv ONLY
                                     </div>
                                 </template>
                             </el-upload>

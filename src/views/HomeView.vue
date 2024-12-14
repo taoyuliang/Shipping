@@ -15,11 +15,11 @@ const options = data.iata
 </script>
 
 <template>
-    <div class="common-layout h-screen">
+    <div class="common-layout">
         <el-container>
-            <el-header>
+            <!-- <el-header>
                 <Header />
-            </el-header>
+            </el-header> -->
             <el-main>
                 <div class="mt-10">
                     <el-carousel :interval="2000" type="card" height="400px">
@@ -29,39 +29,40 @@ const options = data.iata
                     </el-carousel>
                 </div>
                 <!-- <el-form> -->
-                <div class="mt-8 mb-44 justify-items-center">
+                <div class="mt-10 justify-items-center">
                     <el-row>
                         <el-col :span="5" :offset="6">
                             <el-select v-model="from" filterable placeholder="please select ..."
-                                class="input-with-select">
+                                class="input-with-select" size="large">
                                 <el-option v-for="item in options" :key="item.value" :label="item.label"
                                     :value="item.value" />
                             </el-select>
                         </el-col>
 
-                        <MiSolidAirplane class="icon" />
+                        <div class="text-2xl">
+                            <MiSolidAirplane class="icon" />
+                        </div>
 
                         <el-col :span="5">
-                            <el-select v-model="to" filterable placeholder="please select ..."
-                                class="input-with-select">
+                            <el-select v-model="to" filterable placeholder="please select ..." class="input-with-select"
+                                size="large">
                                 <el-option v-for="item in options" :key="item.value" :label="item.label"
                                     :value="item.value" />
                             </el-select>
                         </el-col>
 
                         <el-col :span="2">
-                            <el-button :icon="Search" @click="toQueryResult" />
+                            <el-button :icon="Search" @click="toQueryResult" size="large" />
                         </el-col>
                     </el-row>
                 </div>
                 <!-- </el-form> -->
 
             </el-main>
-            <!-- <el-footer>
-
-            </el-footer> -->
+            <el-footer class="mt-60">
+                <Footer />
+            </el-footer>
         </el-container>
-        <Footer />
     </div>
 </template>
 

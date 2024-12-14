@@ -21,8 +21,8 @@ const removeItem = (iKey) => emit('deleteItem', iKey)
     <div class="mb-10">
         <el-row>
             <el-col :span="3">
-                <el-image style="width: 50px; height: 50px; margin-right: .5rem;" src="" :alt="itemObj.airline"
-                    fit="fill" />
+                <!-- <el-image style="width: 50px; height: 50px; margin-right: .5rem;" src="" :alt="itemObj.airline"
+                    fit="fill" /> -->
                 <el-text size="small">{{ itemObj.airline }}</el-text>
             </el-col>
             <el-col :span="3">
@@ -43,7 +43,7 @@ const removeItem = (iKey) => emit('deleteItem', iKey)
                 <el-text>起效期: {{ itemObj.effective_date.split("T")[0] }}</el-text>
             </el-col>
             <el-col :span="12">
-                <el-table :data="itemObj.ratesArr" stripe size="small">
+                <el-table :data="itemObj.ratesArr.slice(0, 4)" stripe size="small">
                     <el-table-column prop="ratio" label="货比" />
                     <el-table-column prop="type" label="类型" />
                     <el-table-column prop="45" label="45+" />
@@ -65,14 +65,14 @@ const removeItem = (iKey) => emit('deleteItem', iKey)
                 </el-icon>
             </el-col>
         </el-row>
-        <el-row style="background-color: lightgray;">
+        <el-row class="bg-orange-100">
             <el-text size="small">
                 <el-icon>
                     <ElementPlus />
                 </el-icon>
                 <!-- 北京中港大方国际货运代理有限公司 -->
             </el-text>
-            <el-rate class="ml-1" size="small" />
+            <el-rate class="ml-1" size="small" model-value="5" />
         </el-row>
     </div>
 </template>
