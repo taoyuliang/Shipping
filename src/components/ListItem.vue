@@ -1,6 +1,7 @@
 <script setup>
 // import { FlDelete, AkArrowRightThick } from '@kalimahapps/vue-icons'
 // import { useToast } from 'vue-toast-notification';
+import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { useRouter, useRoute } from 'vue-router'
 const router = useRouter()
@@ -14,7 +15,7 @@ defineProps({
 // const toast = useToast()
 // window.confirm("Are you sure...")
 const removeItem = (iKey) => emit('deleteItem', iKey)
-
+const rate = ref(5)
 </script>
 
 <template>
@@ -46,17 +47,17 @@ const removeItem = (iKey) => emit('deleteItem', iKey)
                 <el-table :data="itemObj.ratesArr.slice(0, 4)" stripe size="small">
                     <el-table-column prop="ratio" label="货比" />
                     <el-table-column prop="type" label="类型" />
-                    <el-table-column prop="45" label="45+" />
-                    <el-table-column prop="100" label="100+" />
-                    <el-table-column prop="300" label="300+" />
-                    <el-table-column prop="500" label="500+" />
-                    <el-table-column prop="1000" label="1000+" />
+                    <el-table-column prop="r45" label="45+" />
+                    <el-table-column prop="r100" label="100+" />
+                    <el-table-column prop="r300" label="300+" />
+                    <el-table-column prop="r500" label="500+" />
+                    <el-table-column prop="r1000" label="1000+" />
                 </el-table>
             </el-col>
 
             <el-col v-if="!showDeleteIcon" :span="3">
                 <el-button type="primary" @click="() =>
-                    ElMessage('TODO.')
+                    ElMessage('TODO')
                     ">详情</el-button>
             </el-col>
             <el-col v-if="showDeleteIcon" :span="3">
@@ -72,7 +73,7 @@ const removeItem = (iKey) => emit('deleteItem', iKey)
                 </el-icon>
                 <!-- 北京中港大方国际货运代理有限公司 -->
             </el-text>
-            <el-rate class="ml-1" size="small" model-value="5" />
+            <el-rate class="ml-1" size="small" :model-value="4" />
         </el-row>
     </div>
 </template>

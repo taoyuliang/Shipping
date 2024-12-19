@@ -1,9 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { reactive } from 'vue'
-import data from '../assets/data.json'
-import axios from 'axios'
 // import { v4 as uuidv4 } from 'uuid' // use id instead which is also unique in TABLE 's_routes'
 
 const loading = ref(true)

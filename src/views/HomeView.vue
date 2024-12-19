@@ -33,7 +33,7 @@ const options = data.iata
                     <el-row>
                         <el-col :span="5" :offset="6">
                             <el-select v-model="from" filterable placeholder="please select ..."
-                                class="input-with-select" size="large">
+                                class="input-with-select" size="large" :value-on-clear="null">
                                 <el-option v-for="item in options" :key="item.value" :label="item.label"
                                     :value="item.value" />
                             </el-select>
