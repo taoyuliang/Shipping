@@ -70,7 +70,7 @@ formInline.to = route.query.to
 
 <template>
     <div class="common-layout h-screen">
-        <el-container>
+        <el-container class="affix-container">
             <el-main style="padding-left: 10rem;padding-right: 10rem;">
                 <!-- <el-affix :offset="120"> -->
 
@@ -99,12 +99,15 @@ formInline.to = route.query.to
                     <el-form-item>
                         <el-button type="primary" @click="onSubmit">查询</el-button>
                     </el-form-item>
+
+                    <el-form-item size="large" label="">
+                        <el-text type="primary" tag="b">客服QQ1:704281955&nbsp;&nbsp;客服QQ2:1165376918</el-text>
+                    </el-form-item>
                 </el-form>
                 <el-text size="large">推荐航线</el-text>
-                <div>
-                    <el-pagination layout="prev, pager, next" :page-size="10" :total="total"
-                        v-model:current-page="currentPage" />
-                </div>
+                <el-pagination layout="prev, pager, next" :page-size="10" :total="total"
+                    v-model:current-page="currentPage" />
+
                 <el-divider />
                 <!-- </el-affix> -->
                 <div v-loading="loading">
@@ -114,8 +117,12 @@ formInline.to = route.query.to
                 </div>
 
             </el-main>
+            <!-- <el-affix target=".affix-container" :offset="80">
+
+            </el-affix> -->
         </el-container>
     </div>
+    <!-- <el-backtop :right="100" :bottom="100" /> -->
 </template>
 
 <style scoped>

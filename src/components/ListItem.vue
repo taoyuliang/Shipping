@@ -22,9 +22,15 @@ const rate = ref(5)
     <div class="mb-10">
         <el-row>
             <el-col :span="3">
-                <!-- <el-image style="width: 50px; height: 50px; margin-right: .5rem;" src="" :alt="itemObj.airline"
-                    fit="fill" /> -->
-                <el-text size="small">{{ itemObj.airline }}</el-text>
+                <el-row><el-text size="small">{{ itemObj.airline }}</el-text></el-row>
+                <el-row><el-image style="width: 100px; height: 100px; margin-right: .5rem;"
+                        :src="`https://assets.duffel.com/img/airlines/for-light-background/full-color-lockup/${itemObj.airline.slice(0, 2)}.svg`"
+                        fit="fill" crossorigin="anonymous">
+                        <template #error>
+                            <LaFighterJetSolid />
+                        </template>
+                    </el-image>
+                </el-row>
             </el-col>
             <el-col :span="3">
                 <el-text size="large">{{ itemObj.from }}</el-text>
@@ -42,6 +48,8 @@ const rate = ref(5)
             </el-col>
             <el-col :span="3">
                 <el-text>起效期: {{ itemObj.effective_date.split("T")[0] }}</el-text>
+                <br>
+                <el-text>{{ itemObj.schedule_date }}</el-text>
             </el-col>
             <el-col :span="12">
                 <el-table :data="itemObj.ratesArr.slice(0, 4)" stripe size="small">
@@ -73,7 +81,7 @@ const rate = ref(5)
                 </el-icon>
                 <!-- 北京中港大方国际货运代理有限公司 -->
             </el-text>
-            <el-rate class="ml-1" size="small" :model-value="4" />
+            <el-rate class="ml-1" size="small" :model-value="5" />
         </el-row>
     </div>
 </template>
